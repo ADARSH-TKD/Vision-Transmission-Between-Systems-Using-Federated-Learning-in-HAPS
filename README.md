@@ -1,10 +1,10 @@
-# Federated Learning Report 📊
+# Federated Learning 📊
 
-A concise guide to understanding Federated Learning (FL), its importance, workflow, challenges, and applications.
+A concise guide to understanding **Federated Learning (FL)**, its importance, workflow, challenges, applications, and a case study on **vision transmission using FL in HAPS (High Altitude Platform Stations)**.
 
 ---
 
-## Table of Contents
+## 📚 Table of Contents
 - [What is Federated Learning?](#what-is-federated-learning)
 - [Why is FL Important?](#why-is-fl-important)
 - [How FL Works](#how-fl-works)
@@ -14,94 +14,126 @@ A concise guide to understanding Federated Learning (FL), its importance, workfl
 - [Advantages vs. Traditional ML](#advantages-vs-traditional-ml)
 - [Limitations](#limitations)
 - [Future Directions](#future-directions)
+- [Case Study: Vision Transmission in HAPS using FL](#case-study-vision-transmission-in-haps-using-fl)
 - [Conclusion](#conclusion)
+- [References](#references)
 
 ---
 
 ## What is Federated Learning?
-Federated Learning (FL) is a **privacy-first machine learning technique** that trains models **without centralizing raw data**.  
-- **Decentralized Training**: Devices (phones, computers) train models locally.  
-- **No Data Sharing**: Only model updates (e.g., gradients) are sent to a central server.  
+**Federated Learning (FL)** is a privacy-first machine learning approach where model training happens **locally on user devices** without centralizing raw data.
+
+- 📡 **Decentralized Training**: Devices like smartphones or sensors train models locally.
+- 🔒 **Data Stays Local**: Only model updates (like gradients) are shared with the central server.
 
 ---
 
 ## Why is FL Important?
-- **🔒 Privacy**: Data stays on users' devices (GDPR/CCPA compliant).  
-- **🚀 Efficiency**: Leverages distributed compute power across devices.  
-- **🌐 Decentralization**: Reduces reliance on a single server.  
+- 🔐 **Privacy**: Compliant with GDPR/CCPA; raw data never leaves the device.
+- ⚡ **Efficiency**: Utilizes distributed computational power.
+- 🌍 **Decentralization**: Reduces reliance on centralized systems.
 
 ---
 
 ## How FL Works
-1. **Initialization**: Central server creates a base model.  
-2. **Distribution**: Model is sent to participating devices.  
-3. **Local Training**: Devices train the model on their data.  
-4. **Update Sharing**: Devices send **model updates** (not raw data) to the server.  
-5. **Aggregation**: Server combines updates to improve the global model.  
-6. **Iteration**: Repeat until the model converges.  
-
-![FL Workflow](https://miro.medium.com/v2/resize:fit:1400/1*N5uit6skAWz6h3Uoj6HJnQ.png)  
-*(Replace with your own diagram link)*
+1. Server initializes a model.
+2. Devices receive and train on local data.
+3. Only updates are sent back.
+4. Server aggregates updates.
+5. The global model is updated.
+6. Process repeats for better accuracy.
 
 ---
 
 ## Key Components
-| Component          | Description                                                                 |
-|---------------------|-----------------------------------------------------------------------------|
-| **Devices (Clients)** | Phones, IoT devices, or computers with local data.                         |
-| **Central Server**    | Aggregates model updates and manages training rounds.                      |
-| **Model Updates**     | Small adjustments (e.g., gradients) sent back to the server.               |
+| Component           | Description                                               |
+|---------------------|-----------------------------------------------------------|
+| Devices (Clients)   | End-user systems like phones or IoT sensors               |
+| Central Server      | Coordinates learning and aggregates model updates         |
+| Model Updates       | Gradients/weights — not raw data — sent back for learning |
 
 ---
 
 ## Challenges
-- **📶 Communication Overhead**: Slow networks or large device counts delay updates.  
-- **📊 Data Heterogeneity**: Non-IID (non-identical) data across devices causes bias.  
-- **🔐 Security Risks**: Updates may leak sensitive info (requires encryption).  
-- **🔋 Device Limitations**: Varying compute power, battery life, and connectivity.  
+- 📶 **Communication Overhead**
+- 📊 **Non-IID Data Distribution**
+- 🔐 **Security Risks**
+- 🔋 **Resource Constraints**
 
 ---
 
 ## Applications
-| Domain             | Use Case                                                                 |
-|---------------------|--------------------------------------------------------------------------|
-| **Smartphones**     | Predictive text, voice recognition without sharing user data.           |
-| **Healthcare**      | Collaborative diagnosis across hospitals (keeps patient data private).  |
-| **Finance**         | Fraud detection using transaction data from multiple banks.             |
+| Domain        | Use Case                                                        |
+|---------------|-----------------------------------------------------------------|
+| Smartphones   | Predictive keyboards, voice assistants                          |
+| Healthcare    | Disease diagnosis models across hospitals                       |
+| Finance       | Fraud detection across decentralized banking institutions       |
 
 ---
 
 ## Advantages vs. Traditional ML
-| **Federated Learning**         | **Traditional ML**                      |
-|---------------------------------|------------------------------------------|
-| Data stays on devices           | Centralized data storage                 |
-| Lower bandwidth usage           | High data transfer costs                 |
-| Real-time model improvements    | Periodic retraining with new data        |
+| Federated Learning              | Traditional Machine Learning               |
+|--------------------------------|--------------------------------------------|
+| Data remains on device         | Requires centralized data collection       |
+| Reduces bandwidth              | High data transfer requirements            |
+| Continuous local improvements  | Requires full retraining for updates       |
 
 ---
 
 ## Limitations
-- **Complex Setup**: Requires coordination across devices.  
-- **Device Requirements**: Needs sufficient compute and battery.  
-- **Slower Convergence**: Training takes longer than centralized methods.  
+- Complex setup and orchestration
+- Requires sufficient device capabilities
+- Training may take longer due to decentralization
 
 ---
 
 ## Future Directions
-- **Faster Training**: Optimize communication and aggregation.  
-- **Enhanced Security**: Integrate differential privacy and secure aggregation.  
-- **New Applications**: Expand to autonomous vehicles, smart homes, and edge AI.  
+- 📈 Faster model convergence
+- 🔐 Enhanced security with secure aggregation and DP
+- 🚗 New applications in autonomous vehicles and edge AI
+
+---
+
+## 📡 Case Study: Vision Transmission in HAPS using FL
+
+### 🎯 Objective
+Use Federated Learning to **reduce bandwidth usage** and **preserve data quality** when transmitting vision data between HAPS and ground systems.
+
+### 🧠 Core Concept
+Rather than transmitting full images/videos:
+- HAPS processes data locally using FL
+- Only model insights/updates are sent to ground stations
+- Ground systems reconstruct visual info using the global model
+
+### 🏗️ Architecture Overview
+1. **Local Vision Processing on HAPS**
+   - Uses CNNs or vision transformers to process data locally.
+2. **Federated Training**
+   - Each HAPS trains a shared model on unique visual data.
+3. **Model Updates**
+   - Only gradients or learned features are sent to the central server.
+4. **Aggregation & Feedback**
+   - Central server aggregates updates and improves the global vision model.
+5. **Ground Reconstruction**
+   - Ground systems reconstruct necessary visual details using updated models.
+
+### ✅ Benefits
+- 🚀 Saves bandwidth
+- 🔐 Preserves sensitive visual data
+- 📊 Enables smarter onboard AI for real-time processing
 
 ---
 
 ## Conclusion
-Federated Learning enables **privacy-preserving AI** by training models across decentralized devices. While challenges like communication and security persist, advancements in efficiency and frameworks (e.g., TensorFlow Federated) are driving its adoption in healthcare, finance, and beyond.  
+Federated Learning represents a **paradigm shift in machine learning**—favoring **privacy, decentralization, and efficiency**. Its integration into real-world systems like HAPS vision transmission shows how FL is shaping the future of **AI on the edge**.
 
 ---
 
-**References**  
-- [TensorFlow Federated](https://www.tensorflow.org/federated)  
-- [Flower Framework](https://flower.dev/)  
-- [Federated Learning Paper](https://arxiv.org/abs/1602.05629)  
+## References
+- [TensorFlow Federated](https://www.tensorflow.org/federated)
+- [Flower FL Framework](https://flower.dev/)
+- [Federated Learning Research Paper](https://arxiv.org/abs/1602.05629)
+- [MIT License](https://opensource.org/licenses/MIT)
 
-*📌 License: [MIT](https://opensource.org/licenses/MIT)*  
+---
+
