@@ -109,13 +109,13 @@ Rather than transmitting full images/videos:
 1. **Local Vision Processing on HAPS**
    - Uses CNNs or vision transformers to process data locally.
 2. **Federated Training**
-   - Each HAPS trains a shared model on unique visual data.
+   - Extract only critical information
 3. **Model Updates**
    - Only gradients or learned features are sent to the central server.
 4. **Aggregation & Feedback**
-   - Central server aggregates updates and improves the global vision model.
+   - Central server aggregates updates and improves the global vision model.(Transmit insights and model updates rather than raw footage)
 5. **Ground Reconstruction**
-   - Ground systems reconstruct necessary visual details using updated models.
+   - Ground systems reconstruct necessary visual details using updated models.(Reconstruct meaningful visual information on the ground)
 
 ### ✅ Benefits
 - 🚀 Saves bandwidth
