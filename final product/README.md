@@ -3,6 +3,18 @@
 ## 1. Introduction
 This project implements a client-server system for video processing, recording, and panorama creation. The server (`sever3.py`) captures video, processes frames with simulated federated learning, records videos, and distributes them to connected clients. The client (`client2.py`) receives video files, plays them, and creates panoramic images from the video frames. The system supports real-time video processing, file transfer, and automated panorama generation with a user-friendly interface.
 
+<!DOCTYPE html>
+<html>
+<body>
+
+  <div class="image-hover">
+    <img src="https://github.com/ADARSH-TKD/Vision-Transmission-Between-Systems-Using-Federated-Learning-in-HAPS/raw/main/video/img1.png" alt="Federated Learning Image">
+  </div>
+
+</body>
+</html>
+
+
 ## 2. Working Flow
 1. **Server Side (`sever3.py`)**:
    - Initializes a video capture device (webcam) and a TCP server on `localhost:8080`.
